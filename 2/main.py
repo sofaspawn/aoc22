@@ -12,20 +12,17 @@ def solution():
     }
     rounds = open('strategy', 'r').read().strip().split('\n')
     tscore = 0 
-    exp = [
-        'A Y',
-        'B X',
-        'C Z'
-        ]
     for r in rounds:
         [o, s] = r.split(' ') 
         print(o, s)
-        if symbols[o]<symbols[s]:
-            tscore += symbols[s] + 6
-        elif symbols[o]==symbols[s]:
-            tscore += symbols[s] + 3
-        elif symbols[o] > symbols[s]:
-            tscore += symbols[s]
+        if symbols[o] == symbols[s]:
+            tscore += symbols[s] + 3  # Draw
+        elif (symbols[o] == 1 and symbols[s] == 2) or \
+             (symbols[o] == 2 and symbols[s] == 3) or \
+             (symbols[o] == 3 and symbols[s] == 1):
+            tscore += symbols[s] + 6  # Win
+        else:
+            tscore += symbols[s]  # Loss
 
     return tscore
 
