@@ -32,7 +32,6 @@ def solution():
         else:
             tscore += symbolspt1[s]  # Loss
     '''
-
     # part 2
     for r in rounds:
         [o, s] = r.split(' ') 
